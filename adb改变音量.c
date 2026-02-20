@@ -95,8 +95,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     
     // 计算右下角坐标：屏幕宽度-窗口宽度，屏幕高度-窗口高度
     // 额外减20是为了避开任务栏，避免窗口被遮挡
-    int x = screen_w - win_w - 300;
-    int y = screen_h - win_h - 50;
+    int x = screen_w - win_w;
+    int y = screen_h - win_h - 45;
     HWND hwnd = CreateWindowEx(
         0,
         "AdbVolumeCtrl",
@@ -112,12 +112,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     // 左侧按钮：减音量（修改点1）
     CreateWindow("BUTTON", "Volume -",
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-        30, 30, 80, 40,
+        30, 30, 80, 62,
         hwnd, (HMENU)ID_BTN_DOWN, hInstance, NULL);
     // 右侧按钮：加音量（修改点2）
     CreateWindow("BUTTON", "Volume +",
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-        130, 30, 80, 40,
+        130, 30, 80, 62,
         hwnd, (HMENU)ID_BTN_UP, hInstance, NULL);
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
